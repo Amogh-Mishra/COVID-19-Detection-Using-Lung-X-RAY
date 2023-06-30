@@ -1,0 +1,252 @@
+<html>
+
+<head>
+    <title>COVID-19 TESTING</title>
+
+    <style>
+       h4{
+            padding-bottom: 10px;
+        }
+        .container  {
+            padding-top: 20px;
+            padding-right: 30px;
+            padding-bottom: 50px;
+            padding-left: 30px;
+        }
+        h2{
+            justify-content: center;
+            text-align: center;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            height: 60px;
+            background-color: rgb(10, 34, 10);
+            color: white;
+            font-family: "Ubuntu", sans-serif;
+            font-size: 18px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            padding: 0 10px;
+        }
+
+        .brand img {
+            height: 55px;
+            width: 60px;
+            margin-right: 10px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        #image-selector {
+            height: 25px;
+            width: 200px;
+        }
+
+        #image-preview {
+            position: absolute;
+            right: 300px;
+        }
+        button {
+            width: 10px;
+            height: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        padding: 17px 40px;
+        margin-top: 20px;
+        border-radius: 50px;
+        border: 0;
+        background-color: white;
+        box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+        letter-spacing: 0.5 px;
+        text-transform: uppercase;
+        font-size: 12px;
+        transition: all .5s ease;
+        }
+
+        button:hover {
+        letter-spacing: 1px;
+        background-color: hsl(260, 11%, 95%);
+        color: hsl(0, 83%, 5%);
+        box-shadow: rgb(12, 11, 12) 0px 7px 29px 0px;
+        }
+
+        button:active {
+        letter-spacing: 1px;
+        background-color: hsl(261deg 80% 48%);
+        color: hsl(0, 0%, 100%);
+        box-shadow: rgb(13, 12, 14) 0px 0px 0px 0px;
+        transform: translateY(10px);
+        transition: 100ms;
+        }
+        .card {
+        position: relative;
+        width: 250px;
+        height: 60px;
+        margin-top: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        perspective: 1000px;
+        box-shadow: 0 0 0 5px #ffffff80;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card svg {
+        width: 48px;
+        fill: #333;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(3, 3, 3, 0.2);
+        }
+
+        .card__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+        transform: rotateX(-90deg);
+        transform-origin: bottom;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover .card__content {
+        transform: rotateX(0deg);
+        }
+
+        .card__title {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+        font-weight: 700;
+        }
+
+        .card:hover svg {
+        scale: 0;
+        }
+
+        .card__description {
+        margin: 10px 0 0;
+        font-size: 14px;
+        color: #777;
+        line-height: 1.4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><img src="{{url_for('static', filename='logo1.png')}}" />Covid Detection</li>
+            <li>Home</li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="info">
+            <br>
+            <h2>COVID-19 Detection Using Lung X-RAY</h2>
+            <br>
+            <h3 class="upload">Upload your X-Ray image: </h3>
+            <!-- image selectorr -->
+            <div class="card">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
+                <div class="card__content">
+                  <input id="image-selector" type="file" />
+                  
+                </div>
+            </div>
+            <button id="predict-button" class="Btn">Predict</button>
+            <br><br>
+            <p><b>PREDICTION:</b> <span id="result">...</span></p>
+            <br>
+            <p><b>PROBABILITY</b>: <span id="probability">...</span></p>
+        </div>
+        <div id="image-preview">
+            <br><br>
+            <img id="selected-image" width="400" src="{{url_for('static', filename='default.png')}}" alt="Upload your lung x-ray for detection"/>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    let base64Image;
+    $("#image-selector").change(function () {
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            let dataURL = reader.result;
+            $("#selected-image").attr("src", dataURL);
+            base64Image = dataURL.replace(
+                /^data:image\/(png|jpg|jpeg);base64,/,
+                ""
+            );
+            console.log(base64Image);
+        };
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+        $("#result").text("");
+        $("#probability").text("");
+    });
+
+    $("#predict-button").click(function () {
+        let message = {
+            image: base64Image,
+        };
+        console.log(message);
+        $.post(
+            "http://127.0.0.1:5000/predict",
+            JSON.stringify(message),
+            function (response) {
+                $("#result").text(response.prediction.result);
+                $("#probability").text(response.prediction.accuracy.toFixed(2));
+                console.log(response);
+            }
+        );
+    });
+</script>
+
+</html>
